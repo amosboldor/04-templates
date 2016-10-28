@@ -19,10 +19,10 @@ Article.prototype.toHtml = function() {
   //       - Select your template from the DOM.
   //       - Now "compile" your template with Handlebars.
   //       - Don't forget to return your template for this article.
-  console.log(this);
+
   var source = $('#article-template').html();
   var templateRender = Handlebars.compile(source);
-  console.log(this);
+
   return templateRender(this);
 };
 
