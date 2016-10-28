@@ -6,8 +6,7 @@ function Article (opts) {
   }
 }
 
-
-Article.prototype.toHtml = function() {
+Article.prototype.toHtml = function(templateId) {
   // DONE: If your template will use properties that aren't on the object yet, add them.
   //   Since your template can't hold any JS logic, we need to execute the logic here.
   //   The result is added to the object as a new property, which can then be referenced
@@ -20,7 +19,7 @@ Article.prototype.toHtml = function() {
   //       - Now "compile" your template with Handlebars.
   //       - Don't forget to return your template for this article.
 
-  var source = $('#article-template').html();
+  var source = $('#' + templateId).html();
   var templateRender = Handlebars.compile(source);
 
   return templateRender(this);
@@ -32,8 +31,4 @@ ourLocalData.sort(function(a,b) {
 
 ourLocalData.forEach(function(ele) {
   articles.push(new Article(ele));
-});
-
-articles.forEach(function(a){
-  $('#articles').append(a.toHtml());
 });
